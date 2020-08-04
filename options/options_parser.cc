@@ -724,7 +724,7 @@ Status RocksDBOptionsParser::VerifyDBOptions(
     const DBOptions& base_opt, const DBOptions& persisted_opt,
     const std::unordered_map<std::string, std::string>* /*opt_map*/,
     OptionsSanityCheckLevel sanity_check_level) {
-  for (auto pair : db_options_type_info) {
+  for (auto& pair : db_options_type_info) {
     if (pair.second.verification == OptionVerificationType::kDeprecated) {
       // We skip checking deprecated variables as they might
       // contain random values since they might not be initialized
