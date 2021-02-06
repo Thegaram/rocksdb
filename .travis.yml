@@ -40,6 +40,7 @@ env:
   - JOB_NAME=encrypted_env # 16-18 minutes
 
 matrix:
+<<<<<<< HEAD
   exclude:
   - os: osx
     env: TEST_GROUP=1
@@ -57,6 +58,18 @@ matrix:
     compiler: gcc
   - os: osx
     env: JOB_NAME=encrypted_env
+=======
+  include:
+    - os: linux
+      arch: arm64-graviton2
+      virt: vm
+      env: TEST_GROUP=platform_dependent
+    - os: osx
+      os_image: xcode12.2
+      compailer: clang
+      env: TEST_GROUP=platform_dependent
+
+>>>>>>> 0b76f875f... Fix build on Apple Silicon Mac (#219)
 
 # https://docs.travis-ci.com/user/caching/#ccache-cache
 install:
